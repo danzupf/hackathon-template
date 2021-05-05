@@ -1,6 +1,6 @@
 # App Template for Bonding Hackathon 2021
 
-This project is a template for the Frankfurt bonding hackathon on 2021-05-0{6,7}.
+This project is a template for the Frankfurt Bonding Hackathon on 2021-05-06/7.
 
 It comprises a frontend and a backend to help you get started.
 You are free to start from scratch in any language/framework you want of course.
@@ -8,9 +8,9 @@ There are no bonus points for using the provided project :-)
 
 The provided backend implements an in-memory database as well as requests to query and fill the database.
 The provided frontend offers basic interaction with the backend.
-From this starting point you can either implement a strong backend or a strong frontend.
-A strong backend implements most of the logic and offers specific requests for the frontend to call.
-A strong frontend implements most of the logic and queries the backend only for raw data.
+From this starting point you can either implement a strong backend or a strong frontend.  
+A strong **backend** implements most of the logic and offers specific requests for the frontend to call.  
+A strong **frontend** implements most of the logic and queries the backend only for raw data.  
 You could even skip the backend and put all functionality into the frontend (or skip the frontend and extend the backend with e.g. vaadin to offer user interaction).
 
 
