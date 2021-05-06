@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  client_id: '172578982239-gq7bk0uet3dcfd4kg06go05l02jp2c9o.apps.googleusercontent.com',
+  client_secret: '$${OAUTH_SECRET}',
+  redirectURL: window.location.origin + '/',
 };
 
 /*

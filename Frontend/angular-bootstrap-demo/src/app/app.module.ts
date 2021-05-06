@@ -10,6 +10,21 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {GoogleApiModule, NG_GAPI_CONFIG, NgGapiClientConfig} from 'ng-gapi';
+import {environment} from '../environments/environment';
+import { LoginPageComponent } from './login-page/login-page.component';
+import {UserService} from './Services/user.service';
+import { AddTripComponent } from './add-trip/add-trip.component';
+import { MyWorldComponent } from './my-world/my-world.component';
+
+const gapiClientConfig: NgGapiClientConfig = {
+  client_id: environment.client_id,
+  discoveryDocs: ['https://analyticsreporting.googleapis.com/$discovery/rest?version=v4'],
+  scope: [
+    'https://www.googleapis.com/auth/analytics.readonly',
+    'https://www.googleapis.com/auth/analytics'
+  ].join(' ')
+};
 
 @NgModule({
   declarations: [
@@ -18,15 +33,22 @@ import { HttpClientModule } from '@angular/common/http';
     ContactCreateComponent,
     ContactListComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginPageComponent,
+    AddTripComponent,
+    MyWorldComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    GoogleApiModule.forRoot({
+      provide: NG_GAPI_CONFIG,
+      useValue: gapiClientConfig
+    }),
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

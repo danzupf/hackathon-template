@@ -1,18 +1,11 @@
-<div class="jumbotron" style="background-color: #fff; height: calc(95vh);">
-  <h1>Angular Bootstrap Demo</h1>
+<div class="jumbotron" style="background-color: #fff; height: calc(80vh);">
+  <h1>Fahrt hinzufügen</h1>
   <p class="lead">
-    This demo shows how to integrate Bootstrap 4 with Angular 7
+    Bitte Fahrt einfügen
   </p>
-  <a class="btn btn-lg btn-primary" href="" role="button">View tutorial</a>
-  <table class="table table-hover">
-    <thead>
-    <tr>
-    </tr>
-    </thead>
-    <tbody>
-    <tr >
-      <td>This number comes from a REST call (server needs to be running): {{ text }} </td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="row mt-3">
+    <button class="btn btn-primary form-control" (click)="addTrip()">
+      Fahrt Anlegen
+    </button>
+  </div>
 </div>

@@ -1,0 +1,16 @@
+$theme-colors: map-merge(
+    $theme-colors,
+    (
+      "$primary": #46A800,
+      "$primary": #ff4136
+    )
+);
+
+$colors: map-merge(
+    $colors,
+    (
+      "primary": #46A800,
+      "danger": #ff4136
+    )
+);
+
