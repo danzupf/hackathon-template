@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -19,18 +18,31 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
-@Table(name = "Employees")
-public class Employee {
+@Table(name = "User")
+public class User {
 	
 	@Id
 	@GeneratedValue
 	private long id;
 	
 	@NonNull
-	private String name;
+	private String nameOrEmail;
+
+	@NonNull
+	private String googleID;
+
+	private double co2Total;
 	
 	@NonNull
 	@OneToMany(cascade=CascadeType.ALL)
-	private List<Tree> plantedTrees;
+	private List<Trip> trips;
 
+	public void calculateTotalCo2(){
+		double sum = 0;
+		for (Trip t:
+			 trips) {
+			sum += t.getVehicleType().co2 * t.getLength();
+		}
+		co2Total = sum;
+	}
 }

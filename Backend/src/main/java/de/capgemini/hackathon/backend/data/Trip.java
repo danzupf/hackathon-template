@@ -11,21 +11,26 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.sql.Timestamp;
+
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
-@Table(name = "PlantedTrees")
-public class Tree {
+@Table(name = "Trip")
+public class Trip {
 
 	@Id
 	@GeneratedValue
 	private long id;
 	
 	@NonNull
-	private String type;
-	
+	private Vehicle vehicleType;
+
 	@NonNull
-	private double co2CapturePerSecond;
+	private double length;
+
+	@NonNull
+	private Timestamp timestamp;
 	
 }

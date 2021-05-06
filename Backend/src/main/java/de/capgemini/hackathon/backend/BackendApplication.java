@@ -1,27 +1,23 @@
 package de.capgemini.hackathon.backend;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import java.util.List;
 
+import de.capgemini.hackathon.backend.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import de.capgemini.hackathon.backend.data.Employee;
-import de.capgemini.hackathon.backend.data.EmployeeRepository;
-import de.capgemini.hackathon.backend.data.Tree;
-import de.capgemini.hackathon.backend.data.TreeRepository;
 
 @SpringBootApplication
 public class BackendApplication {
 
 	@Autowired
-	EmployeeRepository er;
+	UserRepository er;
 	
 	@Autowired
-	TreeRepository tr;
+	TripsRepository tr;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
@@ -31,10 +27,17 @@ public class BackendApplication {
 	public void setupTables() {
 		//in the real world you would of course initialize from an sql file
 
-		Employee alice = new Employee("alice", List.of(
-				new Tree("Oak", 6.7), 
-				new Tree("Limetree", 1.7)));
+		User alice = new User("alice", "google" , List.of(
+				new Trip(Vehicle.Bahn_Fernverkehr, 6.7, new Timestamp(System.currentTimeMillis())),
+				new Trip(Vehicle.Bahn_Fernverkehr,  6.7,new Timestamp(System.currentTimeMillis())),
+				new Trip(Vehicle.Bahn_Fernverkehr,  6.7,new Timestamp(System.currentTimeMillis()))));
+		alice.calculateTotalCo2();
 		er.save(alice);
+		User bob = new User("bob", "google", List.of(
+				new Trip(Vehicle.Bahn_Fernverkehr,  6.7,new Timestamp(System.currentTimeMillis())),
+				new Trip(Vehicle.Bahn_Fernverkehr,  6.7,new Timestamp(System.currentTimeMillis()))));
+		bob.calculateTotalCo2();
+		er.save(bob);
 	}
 
 }
